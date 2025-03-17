@@ -1,0 +1,175 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Hero section */
+.hero {
+    background: url('images/placeHolder2.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+
+.hero h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Main content section */
+.main-content {
+    padding: 50px 20px;
+    background-color: #f4f4f4; /* Light background color */
+    text-align: center;
+}
+
+/* Website item section */
+.website-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s, transform 1s;
+}
+
+.website-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.website-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.website-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.website-item h3 {
+    margin: 15px 0;
+    font-size: 2rem;
+}
+
+.website-item p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Mode Styling */
+.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+.dark-mode .hero {
+    background: url('images/placeHolder2.jpg') no-repeat center center/cover;  /* Keeps the same image */
+}
+
+
+.dark-mode .main-content {
+    background-color: #222;
+}
+
+.dark-mode .website-item {
+    background: #333;
+    color: #fff;
+}
+
+.dark-mode .btn {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-mode .btn:hover {
+    background-color: #777;
+}
+
+/* Header and Navigation */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .website-item {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10000;
+}
