@@ -2,7 +2,8 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: "Rubik", sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Hero section */
@@ -10,6 +11,7 @@ body, html {
     background: url('images/placeHolder2.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
+    flex-direction: column;  /* Ensures vertical stacking */
     justify-content: center;
     align-items: center;
     color: white;
@@ -17,12 +19,18 @@ body, html {
     position: relative;
 }
 
+.hero-logo {
+    width: 400px; /* Adjust the size of the logo */
+    margin-bottom: 2px; /* Space between logo and title */
+    filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, 0.5)); /* Apply shadow directly on the logo */
+}
 
 
 .hero h1 {
     font-size: 3rem;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
+
 
 html {
     scroll-behavior: smooth;
@@ -181,13 +189,29 @@ nav a:hover {
 }
 
 footer {
-    background-color: #222;
+    background-color: #151515;
     color: white;
-    text-align: center;
     padding: 10px;
     position: relative;
     bottom: 0;
     width: 100%;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Centers the text */
+    align-items: center; /* Aligns items vertically */
+}
+
+footer p {
+    display: flex;
+    justify-content: center; /* Centers the text */
+    align-items: center;
+    width: 100%; /* Ensures the text spans the full width */
+}
+
+footer img {
+    position: absolute;
+    left: 10px;
+    height: 50px; /* Adjust size */
+    width: 50px;
 }
 
 footer a {
@@ -198,6 +222,7 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
 
 #backToTop {
     position: fixed;
@@ -218,3 +243,160 @@ footer a:hover {
     background-color: #555;
 }
 
+/* The switch - the box around the slider */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #B0B0B0;
+    border: 1px solid #B0B0B0;
+    transition: .4s;
+    border-radius: 32px;
+    outline: none;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    outline: 2px solid #B0B0B0;
+    left: -1px;
+    bottom: -1px;
+    background-color: #fff;
+    transition: transform .25s ease-in-out 0s;
+  }
+  
+  .slider-icon {
+    opacity: 0;
+    height: 12px;
+    width: 12px;
+    stroke-width: 8;
+    position: absolute;
+    z-index: 999;
+    stroke: #222222;
+    right: 60%;
+    top: 30%;
+    transition: right ease-in-out .3s, opacity ease-in-out .15s;
+  }
+  
+  input:checked + .slider {
+    background-color: #222222;
+  }
+  
+  input:checked + .slider .slider-icon {
+    opacity: 1;
+    right: 20%;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(1.5em);
+    outline-color: #181818;
+  }
+
+/* Ensure the settings wrapper takes up space and the close button is properly positioned */
+.settings-wrapper {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center it on the screen */
+    width: 300px;
+    height: auto;
+    background-color: rgb(234, 234, 234);
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 10000; /* Make sure it's on top of other elements */
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.settings-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* Keep space between title and close button */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Title in settings */
+.settings-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;  /* Ensure title is centered */
+    flex-grow: 1;  /* Allow title to take all available space */
+}
+
+/* Close button for the settings menu */
+#exit-settings-button {
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    padding: 0;
+    width: 30px;  /* Set width */
+    height: 30px; /* Set height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Prevent accidental clicks around the button */
+.settings-wrapper button {
+    display: inline-block;  /* Ensures the button doesn't expand unnecessarily */
+}
+
+/* For the rest of the settings content */
+.settings-wrapper h1 {
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Toggle section */
+.toggle-section {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Label for the toggle switch */
+.toggle-label {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #333;
+}

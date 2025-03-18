@@ -32,19 +32,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const text = "Welcome";
-    let index = 0;
-    function type() {
-        if (index < text.length) {
-            document.getElementById("hero-title").textContent += text.charAt(index);
-            index++;
-            setTimeout(type, 100);
-        }
-    }
-    type();
+// Settings Menu
+document.addEventListener("DOMContentLoaded", function () {
+    // Show settings menu when the settings button is clicked
+    document.getElementById('settings-button').addEventListener('click', function() {
+        document.getElementById('settings-popup').style.display = 'flex';
+    });
+
+    // Close the settings menu when the exit button is clicked
+    document.getElementById('exit-settings-button').addEventListener('click', function() {
+        document.getElementById('settings-popup').style.display = 'none';
+    });
 });
 
+// Back to Top Button
 const backToTop = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {

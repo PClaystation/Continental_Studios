@@ -5,26 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="icon" href="images/C2-dark.png" type="image/x-icon">
+</head> 
 <body>
+    
     <section class="hero">
-        <h1 id="hero-title"></h1>
+        <img src="images/C2-dark.png" alt="Logo" class="hero-logo">
+        <h1 id="hero-title">Continental Studios</h1>
     </section>
 
-    <!-- Main content section -->
     <section class="main-content">
         <h2>Websites</h2>
-        <button class="dark-mode-toggle" id="dark-mode-toggle">🌙</button>
-
+        <button id="settings-button">⚙️ Settings</button> <!-- Button to open settings -->
 
         <div class="website-item" id="website1">
             <img src="images/App-logo.png" alt="Website 1" class="website-logo">
             <h3>StepCast</h3>
-            <p>StepCast is a walk tracking website tailored towards podcast listeners with features such as automatic logo fetching from spotify servers. It has both a website and a iOS app yet to release on the app store. StepTrack also has integrated GPS tracking support for both the iOS app and website so you can enjoy hands free walk tracking.</p>
+            <p>StepCast is a walk tracking website tailored towards podcast listeners.</p>
             <a href="https://pclaystation.github.io/Walk-Tracker-Web-App/" class="btn">Visit Website</a>
         </div>
     </section>
     <button id="backToTop">↑</button>
+
+    <!-- Settings Popup Menu -->
+    <div class="settings-wrapper popup-menu" id="settings-popup">
+        <div class="settings-header">
+            <button id="exit-settings-button">X</button>
+            <h1>Settings</h1>
+        </div>
+        
+        <!-- Dark Mode Toggle inside Settings -->
+        <div class="toggle-section">
+            <label for="dark-mode-toggle" class="toggle-label">Dark Mode</label>
+            <label class="switch">
+                <input type="checkbox" id="dark-mode-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
 
 
     <header>
@@ -32,17 +50,36 @@
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#websites">Websites</a></li>
-                <!-- More links as needed -->
             </ul>
         </nav>
     </header>
 
-
-
     <script src="script.js" type="module"></script>
+
     <footer>
-        <p>© 2025 PClaystation | <a href="https://github.com/PClaystation" target="_blank">GitHub</a></p>
+        <p>
+            <img src="images/C2-dark.png" alt="Logo">  © 2025 PClaystation | 
+            <a href="https://github.com/PClaystation" target="_blank"> GitHub </a> |
+            <a href="" target="_blank" id="contact-button"> Contact Us</a>
+            
+            <script>
+                document.getElementById('contact-button').addEventListener('click', function() {
+                    window.location.href = 'contact.html';  // Link to your contact page
+                });
+            </script>
+        </p>
     </footer>
     
+    <script>
+        // Show settings menu when the settings button is clicked
+        document.getElementById('settings-button').addEventListener('click', function() {
+            document.getElementById('settings-popup').style.display = 'flex';
+        });
+
+        // Close the settings menu when the exit button is clicked
+        document.getElementById('exit-settings-button').addEventListener('click', function() {
+            document.getElementById('settings-popup').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
