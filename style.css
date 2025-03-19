@@ -6,6 +6,9 @@ body, html {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+
+
+
 /* Hero section */
 .hero {
     background: url('images/placeHolder2.jpg') no-repeat center center/cover;
@@ -21,7 +24,6 @@ body, html {
 
 .hero-logo {
     width: 400px; /* Adjust the size of the logo */
-    margin-bottom: 2px; /* Space between logo and title */
     filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, 0.5)); /* Apply shadow directly on the logo */
 }
 
@@ -30,6 +32,9 @@ body, html {
     font-size: 3rem;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
+
+
+
 
 
 html {
@@ -42,6 +47,8 @@ html {
     background-color: #f4f4f4; /* Light background color */
     text-align: center;
 }
+
+
 
 /* Website item section */
 .website-item {
@@ -97,6 +104,9 @@ html {
     background-color: #0056b3;
 }
 
+
+
+
 /* Dark Mode Styling */
 .dark-mode {
     background: linear-gradient(135deg, #121212, #1e1e1e);
@@ -127,6 +137,15 @@ html {
     background-color: #777;
 }
 
+.dark-mode .settings-wrapper {
+    background-color: #777;
+}
+
+
+
+
+
+
 /* Header and Navigation */
 header {
     position: fixed;
@@ -136,13 +155,27 @@ header {
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Spreads items evenly */
+    align-items: center;
+    padding: 10px 30px; /* Adds padding so text doesn't hug the screen */
 }
 
+/* Center the navigation */
+nav {
+    flex-grow: 1; /* Ensures the nav takes up enough space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Keep the nav menu centered */
 nav ul {
     display: flex;
     justify-content: center;
     list-style-type: none;
     padding: 10px 0;
+    margin: 0;
 }
 
 nav li {
@@ -159,6 +192,29 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* Right-aligned text for settings */
+.right-text {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    padding-right: 20px; /* Adjusted padding */
+    white-space: nowrap; /* Prevents wrapping */
+    text-decoration: none; /* Ensures there's no underline by default */
+    color: white; /* Keep the text color consistent */
+    cursor: pointer; /* Makes the pointer hand appear on hover */
+    position: absolute; /* Use absolute positioning */
+    right: 85px; /* Moves the .right-text to the right */
+}
+
+/* Underline effect on hover for right text */
+.right-text:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .website-item {
@@ -169,6 +225,9 @@ nav a:hover {
         width: 100%;
     }
 }
+
+
+
 
 /* Dark Mode Toggle Button */
 .dark-mode-toggle {
@@ -188,6 +247,12 @@ nav a:hover {
     transition: background-color 0.3s, color 0.3s;
 }
 
+
+
+
+
+
+
 footer {
     background-color: #151515;
     color: white;
@@ -195,24 +260,42 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Centers the text */
-    align-items: center; /* Aligns items vertically */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Left, Center, Right */
+    align-items: center;
+    text-align: center;
 }
 
-footer p {
+.left-content {
     display: flex;
-    justify-content: center; /* Centers the text */
     align-items: center;
-    width: 100%; /* Ensures the text spans the full width */
+    justify-content: start; /* Ensures left content stays on the left */
 }
+
+.left-content img {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px; /* Space between image and text */
+}
+
+.center-content {
+    display: flex;
+    justify-content: center; /* Ensures center text is truly centered */
+}
+
+
 
 footer img {
-    position: absolute;
-    left: 10px;
-    height: 50px; /* Adjust size */
+    height: 50px;
     width: 50px;
+    margin-right: 10px; /* Space between image and text */
 }
+
+.center-content {
+    flex-grow: 1; /* Allows it to take up remaining space */
+    text-align: center; /* Ensures text stays centered */
+}
+
 
 footer a {
     color: #007bff;
@@ -224,12 +307,15 @@ footer a:hover {
 }
 
 
+
+
+
 #backToTop {
     position: fixed;
     bottom: 20px;
     right: 20px;
     padding: 10px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7);
     color: rgb(49, 49, 49);
     border: none;
     border-radius: 5px;
@@ -242,6 +328,11 @@ footer a:hover {
 #backToTop:hover {
     background-color: #555;
 }
+
+
+
+
+
 
 /* The switch - the box around the slider */
 .switch {

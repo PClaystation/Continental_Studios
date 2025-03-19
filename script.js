@@ -59,3 +59,18 @@ window.addEventListener("scroll", () => {
 backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// Show settings menu when the settings button is clicked
+document.getElementById('settings-button').addEventListener('click', function() {
+    document.getElementById('settings-popup').style.display = 'flex';
+});
+
+// Show settings menu when the settings header text is clicked
+document.getElementById('settings-header').addEventListener('click', function() {
+    document.getElementById('settings-popup').style.display = 'flex';
+});
+
+// Close the settings menu when the exit button is clicked
+document.getElementById('exit-settings-button').addEventListener('click', function() {
+    document.getElementById('settings-popup').style.display = 'none';
+});

@@ -16,7 +16,7 @@
 
     <section class="main-content">
         <h2>Websites</h2>
-        <button id="settings-button">⚙️ Settings</button> <!-- Button to open settings -->
+        <p id="settings-button"></pid></p> <!-- DO NOT TOUCH -->
 
         <div class="website-item" id="website1">
             <img src="images/App-logo.png" alt="Website 1" class="website-logo">
@@ -46,28 +46,39 @@
 
 
     <header>
+        <div class="left-placeholder"></div> <!-- Empty div for left spacing -->
         <nav>
             <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#websites">Websites</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="websites.html">Websites</a></li>
             </ul>
         </nav>
+        <div class="right-text" id="settings-header">Settings</div> <!-- Added id -->
     </header>
+    
+    
+    
+    
 
     <script src="script.js" type="module"></script>
 
     <footer>
-        <p>
-            <img src="images/C2-dark.png" alt="Logo">  © 2025 PClaystation | 
-            <a href="https://github.com/PClaystation" target="_blank"> GitHub </a> |
-            <a href="" target="_blank" id="contact-button"> Contact Us</a>
-            
-            <script>
-                document.getElementById('contact-button').addEventListener('click', function() {
-                    window.location.href = 'contact.html';  // Link to your contact page
-                });
-            </script>
-        </p>
+        <div class="left-content">
+            <img src="images/C2-dark.png" alt="Logo">
+            <span>Continental Studios</span>
+        </div>
+        <div class="center-content">
+            <p>
+                © 2025 PClaystation | 
+                <a href="https://github.com/PClaystation" target="_blank">GitHub</a> |
+                <a href="" target="_blank" id="contact-button">Contact Us</a>
+                <script>
+                    document.getElementById('contact-button').addEventListener('click', function() {
+                        window.location.href = 'contact.html';  // Link to your contact page
+                    });
+                </script>
+            </p>
+        </div>
     </footer>
     
     <script>
@@ -75,11 +86,17 @@
         document.getElementById('settings-button').addEventListener('click', function() {
             document.getElementById('settings-popup').style.display = 'flex';
         });
-
+    
+        // Show settings menu when the settings header text is clicked
+        document.getElementById('settings-header').addEventListener('click', function() {
+            document.getElementById('settings-popup').style.display = 'flex';
+        });
+    
         // Close the settings menu when the exit button is clicked
         document.getElementById('exit-settings-button').addEventListener('click', function() {
             document.getElementById('settings-popup').style.display = 'none';
         });
     </script>
+    
 </body>
 </html>

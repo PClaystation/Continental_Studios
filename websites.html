@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/C2-dark.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Websites - Continental Studios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .text {
+            position: relative;
+            max-height: 80px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .fade {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 100%);
+            pointer-events: none;
+        }
+        .button {
+            background-color: navy;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Our Websites</h1>
+    <p>Explore the websites created by Continental Studios.</p>
+
+    <div class="container">
+        <h2>StepCast</h2>
+        <div class="text" id="text1">
+            <p>A walk tracker made for podcast listeners</p>
+            <p>This website explores something really interesting, and we continue to develop it.</p>
+            <p>In the future, we plan to expand its features and make it more interactive.</p>
+            <div class="fade" id="fade1"></div>
+        </div>
+        <button class="button" onclick="toggleText('text1', 'fade1', this)">Read More</button>
+    </div>
+
+    <div class="container">
+        <h2>Website 2</h2>
+        <div class="text" id="text2">
+            <p>An experimental idea exploring Y...</p>
+            <p>This website is a fun concept that allows users to engage with something unique.</p>
+            <p>We aim to build a strong community around it.</p>
+            <div class="fade" id="fade2"></div>
+        </div>
+        <button class="button" onclick="toggleText('text2', 'fade2', this)">Read More</button>
+    </div>
+
+    <div class="container">
+        <h2>Website 3</h2>
+        <div class="text" id="text3">
+            <p>A place to showcase Z...</p>
+            <p>This is a creative project that highlights new ideas and possibilities.</p>
+            <p>We hope it will grow into something bigger over time.</p>
+            <div class="fade" id="fade3"></div>
+        </div>
+        <button class="button" onclick="toggleText('text3', 'fade3', this)">Read More</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ensure initial max-height is correctly set
+            document.querySelectorAll(".text").forEach(text => {
+                text.style.maxHeight = "80px";
+            });
+        });
+
+        function toggleText(textId, fadeId, button) {
+            let textContent = document.getElementById(textId);
+            let fadeEffect = document.getElementById(fadeId);
+            let expanded = textContent.style.maxHeight !== "80px"; // Check if it's expanded
+
+            if (expanded) {
+                // Collapse
+                textContent.style.maxHeight = "80px";
+                fadeEffect.style.display = "block";
+                button.textContent = "Read More";
+            } else {
+                // Expand dynamically based on content height
+                textContent.style.maxHeight = textContent.scrollHeight + "px";
+                fadeEffect.style.display = "none";
+                button.textContent = "Read Less";
+            }
+        }
+    </script>
+
+    <button id="backToTop">↑</button>
+    <script src="script.js" type="module"></script>
+
+
+    <div class="settings-wrapper popup-menu" id="settings-popup">
+        <div class="settings-header">
+            <button id="exit-settings-button">X</button>
+            <h1>Settings</h1>
+        </div>
+        
+        <!-- Dark Mode Toggle inside Settings -->
+        <div class="toggle-section">
+            <label for="dark-mode-toggle" class="toggle-label">Dark Mode</label>
+            <label class="switch">
+                <input type="checkbox" id="dark-mode-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <header>
+        <div class="left-placeholder"></div> <!-- Empty div for left spacing -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="websites.html">Websites</a></li>
+            </ul>
+        </nav>
+        <div class="right-text" id="settings-header">Settings</div> <!-- Added id -->
+    </header>
+
+    <footer>
+        <div class="left-content">
+            <img src="images/C2-dark.png" alt="Logo">
+            <span>Continental Studios</span>
+        </div>
+        <div class="center-content">
+            <p>
+                © 2025 PClaystation | 
+                <a href="https://github.com/PClaystation" target="_blank">GitHub</a> |
+                <a href="" target="_blank" id="contact-button">Contact Us</a>
+                <script>
+                    document.getElementById('contact-button').addEventListener('click', function() {
+                        window.location.href = 'contact.html';  // Link to your contact page
+                    });
+                </script>
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+</html>

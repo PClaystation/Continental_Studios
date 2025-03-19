@@ -1,3 +1,8 @@
-
-
 Continental Studios
+
+
+combine first and last name fields
+
+make update page
+Finish settings
+Finish websites page
