@@ -22,7 +22,7 @@
             <img src="images/App-logo.png" alt="Website 1" class="website-logo">
             <h3>StepCast</h3>
             <p>StepCast is a walk tracking website tailored towards podcast listeners.</p>
-            <a href="https://pclaystation.github.io/Walk-Tracker-Web-App/" class="btn">Visit Website</a>
+            <a href="https://pclaystation.github.io/StepCast/" class="btn">Visit Website</a>
         </div>
     </section>
     <button id="backToTop">↑</button>
@@ -36,25 +36,37 @@
         
         <!-- Dark Mode Toggle inside Settings -->
         <div class="toggle-section">
-            <label for="dark-mode-toggle" class="toggle-label">Dark Mode</label>
             <label class="switch">
-                <input type="checkbox" id="dark-mode-toggle">
+                <input type="checkbox" id="dark-mode-toggle" checked> <!-- checked here for dark mode by default -->
                 <span class="slider"></span>
             </label>
+            <label for="dark-mode-toggle" class="toggle-label">Dark Mode</label>
         </div>
     </div>
+    
+    
 
 
     <header>
         <div class="left-placeholder"></div> <!-- Empty div for left spacing -->
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#News">News</a></li>
+                <li><a href="index.html" class="semi-bold-text">Home</a></li>
                 <li><a href="websites.html">Websites</a></li>
             </ul>
         </nav>
-        <div class="right-text" id="settings-header">Settings</div> <!-- Added id -->
+        <div class="right-text" id="settings-header">
+            Settings
+            <span class="arrow">&#9650;</span> <!-- The arrow element -->
+        </div>
     </header>
+    
+    
+    
+    
+    
+    
     
     
     
@@ -80,23 +92,6 @@
             </p>
         </div>
     </footer>
-    
-    <script>
-        // Show settings menu when the settings button is clicked
-        document.getElementById('settings-button').addEventListener('click', function() {
-            document.getElementById('settings-popup').style.display = 'flex';
-        });
-    
-        // Show settings menu when the settings header text is clicked
-        document.getElementById('settings-header').addEventListener('click', function() {
-            document.getElementById('settings-popup').style.display = 'flex';
-        });
-    
-        // Close the settings menu when the exit button is clicked
-        document.getElementById('exit-settings-button').addEventListener('click', function() {
-            document.getElementById('settings-popup').style.display = 'none';
-        });
-    </script>
     
 </body>
 </html>

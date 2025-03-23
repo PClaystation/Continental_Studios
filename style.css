@@ -138,7 +138,7 @@ html {
 }
 
 .dark-mode .settings-wrapper {
-    background-color: #777;
+    background-color: rgba(119, 119, 119, 0.7);
 }
 
 
@@ -180,35 +180,85 @@ nav ul {
 
 nav li {
     margin: 0 20px;
+    position: relative; /* Allows absolute positioning of the separator */
 }
 
+/* Add separator (|) between each item except the last one */
+nav li:not(:last-child)::after {
+    content: "|";  /* Separator */
+    margin-left: 20px; /* Adds space before the separator */
+    color: white; /* Set the color of the separator */
+    font-size: 32px; /* Same font size as the links */
+}
+
+/* Link styles */
 nav a {
     text-decoration: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 30px;
 }
+
+.semi-bold-text {
+    font-weight: 580;}
+
 
 nav a:hover {
     text-decoration: underline;
 }
 
 /* Right-aligned text for settings */
+/* Style for the right text and arrow */
 .right-text {
     font-size: 0.9rem;
     opacity: 0.7;
-    padding-right: 20px; /* Adjusted padding */
-    white-space: nowrap; /* Prevents wrapping */
-    text-decoration: none; /* Ensures there's no underline by default */
-    color: white; /* Keep the text color consistent */
-    cursor: pointer; /* Makes the pointer hand appear on hover */
-    position: absolute; /* Use absolute positioning */
-    right: 85px; /* Moves the .right-text to the right */
+    padding-right: 20px;
+    white-space: nowrap;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 85px;
+    text-align: center; /* Centers the arrow below the text */
 }
 
-/* Underline effect on hover for right text */
+/* Remove underline on hover for the settings text */
+.right-text a:hover {
+    text-decoration: underline;
+}
+
+/* Style for the arrow */
+.arrow {
+    display: block; /* Makes it a block element */
+    margin: 5px auto 0;  /* Centers the arrow and adds space above */
+    font-size: 12px; /* Makes the arrow smaller */
+    transition: transform 0.3s ease; /* Smooth rotation */
+    text-decoration: none; /* Ensures the arrow doesn't get an underline */
+}
+
+/* Arrow rotation when menu is open */
+.settings-open .arrow {
+    transform: rotate(180deg);  /* Rotates the arrow when the menu is open */
+}
+
+/* Prevent underline on hover for right-text text (Settings) */
 .right-text:hover {
     text-decoration: underline;
 }
+
+/* Hidden settings menu initially */
+#settings-popup {
+    display: none;
+}
+
+/* Show the settings menu when it's toggled */
+.settings-open #settings-popup {
+    display: block;
+}
+
+
+
+
+
+
 
 
 
@@ -333,7 +383,7 @@ footer a:hover {
 
 
 
-
+/* The switch - the box around the slider */
 /* The switch - the box around the slider */
 .switch {
     font-size: 17px;
@@ -341,31 +391,31 @@ footer a:hover {
     display: inline-block;
     width: 3.5em;
     height: 2em;
-  }
+}
   
-  /* Hide default HTML checkbox */
-  .switch input {
+/* Hide default HTML checkbox */
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
   
-  /* The slider */
-  .slider {
+/* The slider */
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #B0B0B0;
+    background-color: #B0B0B0; /* Light mode background */
     border: 1px solid #B0B0B0;
     transition: .4s;
     border-radius: 32px;
     outline: none;
-  }
+}
   
-  .slider:before {
+.slider:before {
     position: absolute;
     content: "";
     height: 2rem;
@@ -376,45 +426,27 @@ footer a:hover {
     bottom: -1px;
     background-color: #fff;
     transition: transform .25s ease-in-out 0s;
-  }
+}
   
-  .slider-icon {
-    opacity: 0;
-    height: 12px;
-    width: 12px;
-    stroke-width: 8;
-    position: absolute;
-    z-index: 999;
-    stroke: #222222;
-    right: 60%;
-    top: 30%;
-    transition: right ease-in-out .3s, opacity ease-in-out .15s;
-  }
-  
-  input:checked + .slider {
-    background-color: #222222;
-  }
-  
-  input:checked + .slider .slider-icon {
-    opacity: 1;
-    right: 20%;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(1.5em);
-    outline-color: #181818;
-  }
+input:checked + .slider {
+    background-color: #222222; /* Dark mode background */
+}
 
-/* Ensure the settings wrapper takes up space and the close button is properly positioned */
+input:checked + .slider:before {
+    transform: translateX(1.5em); /* Moves slider to the right */
+    outline-color: #181818;
+}
+
+
+/* Settings Menu - Positioned at Top Right */
 .settings-wrapper {
     display: none; /* Initially hidden */
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center it on the screen */
+    top: 75px;
+    right: 10px;
     width: 300px;
     height: auto;
-    background-color: rgb(234, 234, 234);
+    background-color: rgba(119, 119, 119, 0.7);
     border-radius: 8px;
     padding: 20px;
     z-index: 10000; /* Make sure it's on top of other elements */
@@ -427,7 +459,7 @@ footer a:hover {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* Keep space between title and close button */
+    justify-content: space-between; /* Keep space between title and close button */
     margin-bottom: 20px;
     position: relative;
 }
@@ -437,8 +469,8 @@ footer a:hover {
     margin: 0;
     font-size: 24px;
     font-weight: bold;
-    text-align: center;  /* Ensure title is centered */
-    flex-grow: 1;  /* Allow title to take all available space */
+    text-align: center; /* Ensure title is centered */
+    flex-grow: 1; /* Allow title to take all available space */
 }
 
 /* Close button for the settings menu */
@@ -449,7 +481,7 @@ footer a:hover {
     cursor: pointer;
     color: #333;
     padding: 0;
-    width: 30px;  /* Set width */
+    width: 30px; /* Set width */
     height: 30px; /* Set height */
     display: flex;
     justify-content: center;
@@ -458,7 +490,7 @@ footer a:hover {
 
 /* Prevent accidental clicks around the button */
 .settings-wrapper button {
-    display: inline-block;  /* Ensures the button doesn't expand unnecessarily */
+    display: inline-block; /* Ensures the button doesn't expand unnecessarily */
 }
 
 /* For the rest of the settings content */
@@ -466,28 +498,20 @@ footer a:hover {
     margin-bottom: 20px;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Toggle section */
+/* Fix Toggle Section - Keeps Slider on the Left */
 .toggle-section {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* Aligns everything to the left */
     width: 100%;
     margin-top: 10px;
 }
 
-/* Label for the toggle switch */
+.switch {
+    margin-right: 10px; /* Adds space between slider and text */
+}
+
 .toggle-label {
-    margin-right: 10px;
     font-size: 16px;
     color: #333;
 }
