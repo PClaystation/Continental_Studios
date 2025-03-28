@@ -48,7 +48,13 @@ html {
     text-align: center;
 }
 
-
+/* Container for website items */
+.website-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align items from the left */
+    gap: 20px; /* Space between cards */
+}
 
 /* Website item section */
 .website-item {
@@ -56,11 +62,12 @@ html {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    width: calc(50% - 10px); /* Ensures two items per row */
     text-align: center;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 2s, transform 2s;
+    box-sizing: border-box; /* Prevents layout issues */
 }
 
 .website-item.visible {
@@ -104,6 +111,13 @@ html {
     background-color: #0056b3;
 }
 
+/* Make it responsive: 1 card per row on small screens */
+@media (max-width: 768px) {
+    .website-item {
+        width: 100%;
+    }
+}
+
 
 
 
@@ -139,6 +153,11 @@ html {
 
 .dark-mode .settings-wrapper {
     background-color: rgba(119, 119, 119, 0.7);
+    color: #fff;
+}
+
+.dark-mode .toggle-label {
+    color: #fff;
 }
 
 
@@ -199,7 +218,7 @@ nav a {
 }
 
 .semi-bold-text {
-    font-weight: 580;}
+    font-weight: 600;}
 
 
 nav a:hover {
@@ -209,14 +228,14 @@ nav a:hover {
 /* Right-aligned text for settings */
 /* Style for the right text and arrow */
 .right-text {
-    font-size: 0.9rem;
+    font-size: 24px;
     opacity: 0.7;
     padding-right: 20px;
     white-space: nowrap;
     color: white;
     cursor: pointer;
     position: absolute;
-    right: 85px;
+    right: 120px;
     text-align: center; /* Centers the arrow below the text */
 }
 
@@ -225,40 +244,82 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Style for the arrow */
-.arrow {
-    display: block; /* Makes it a block element */
-    margin: 5px auto 0;  /* Centers the arrow and adds space above */
-    font-size: 12px; /* Makes the arrow smaller */
-    transition: transform 0.3s ease; /* Smooth rotation */
-    text-decoration: none; /* Ensures the arrow doesn't get an underline */
+/* Position the arrow below the text */
+/* Ensure the header text is the positioning context */
+#settings-header {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    /* (other styles as needed) */
+  }
+  
+  /* Position the arrow centered below the text */
+  .arrow {
+    position: absolute;
+    bottom: -12px;      /* adjust vertical spacing as needed */
+    left: 40%;
+    width: 12px;        /* container for the arrow shape */
+    height: 12px;
+    transform: translateX(-50%) rotate(0deg);  /* default rotation: 0deg here means caret points down (see below) */
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+  
+  /* Build the caret shape using two lines */
+  .arrow::before,
+  .arrow::after {
+    content: "";
+    position: absolute;
+    width: 2px;         /* thickness of each line */
+    height: 6px;        /* length of each line */
+    background: white;  /* arrow color */
+  }
+  
+  /* Left line: rotate so that it slopes to the right in a downward caret */
+  .arrow::before {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    transform-origin: bottom center;
+  }
+  
+  /* Right line: rotate so that it slopes to the left in a downward caret */
+  .arrow::after {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+    transform-origin: bottom center;
+  }
+  
+  /* When the settings menu is open, rotate the whole arrow 180° */
+  .settings-open .arrow {
+    transform: translateX(-50%) rotate(180deg);
+  }
+
+  .left-text img {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px; /* Space between image and text */
 }
 
-/* Arrow rotation when menu is open */
-.settings-open .arrow {
-    transform: rotate(180deg);  /* Rotates the arrow when the menu is open */
-}
-
-/* Prevent underline on hover for right-text text (Settings) */
-.right-text:hover {
-    text-decoration: underline;
-}
-
-/* Hidden settings menu initially */
-#settings-popup {
-    display: none;
-}
-
-/* Show the settings menu when it's toggled */
-.settings-open #settings-popup {
-    display: block;
+.left-text {
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Ensures left content stays on the left */
 }
 
 
+.right-content img {
+    height: 50px;
+    width: 50px;
+    margin-right: 100px; /* Space between image and text */
+}
 
-
-
-
+.right-content {
+    display: flex;
+    align-items: center;
+    justify-content: end; /* Ensures left content stays on the left */
+}
 
 
 
@@ -442,7 +503,7 @@ input:checked + .slider:before {
 .settings-wrapper {
     display: none; /* Initially hidden */
     position: fixed;
-    top: 75px;
+    top: 90px;
     right: 10px;
     width: 300px;
     height: auto;
@@ -515,3 +576,10 @@ input:checked + .slider:before {
     font-size: 16px;
     color: #333;
 }
+
+
+
+
+
+
+

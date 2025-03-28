@@ -16,21 +16,29 @@
 
     <section class="main-content">
         <h2>Websites</h2>
-        <p id="settings-button"></pid></p> <!-- DO NOT TOUCH -->
-
-        <div class="website-item" id="website1">
-            <img src="images/App-logo.png" alt="Website 1" class="website-logo">
-            <h3>StepCast</h3>
-            <p>StepCast is a walk tracking website tailored towards podcast listeners.</p>
-            <a href="https://pclaystation.github.io/StepCast/" class="btn">Visit Website</a>
+        <p id="settings-button"></p> <!-- DO NOT TOUCH -->
+    
+        <!-- New flex container for the cards -->
+        <div class="website-list">
+            <div class="website-item">
+                <img src="images/App-logo.png" alt="Website 1" class="website-logo">
+                <h3>StepCast</h3>
+                <p>StepCast is a walk tracking website tailored towards podcast listeners.</p>
+                <a href="https://pclaystation.github.io/StepCast/" class="btn">Visit Website</a>
+            </div>
+            <div class="website-item">
+                <img src="images/question-mark.png" alt="Website 1" class="website-logo">
+                <h3>Coming Soon...</h3>
+                <p></p>
+            </div>
         </div>
     </section>
+    
     <button id="backToTop">↑</button>
 
     <!-- Settings Popup Menu -->
     <div class="settings-wrapper popup-menu" id="settings-popup">
         <div class="settings-header">
-            <button id="exit-settings-button">X</button>
             <h1>Settings</h1>
         </div>
         
@@ -48,7 +56,11 @@
 
 
     <header>
-        <div class="left-placeholder"></div> <!-- Empty div for left spacing -->
+        <div class="left-text" id="header-logo">
+            <a href="index.html">
+                <img src="images/C2-dark.png" alt="Logo">
+            </a>
+        </div>
         <nav>
             <ul>
                 <li><a href="#News">News</a></li>
@@ -58,7 +70,7 @@
         </nav>
         <div class="right-text" id="settings-header">
             Settings
-            <span class="arrow">&#9650;</span> <!-- The arrow element -->
+            <span class="arrow"></span>
         </div>
     </header>
     
@@ -66,11 +78,7 @@
     
     
     
-    
-    
-    
-    
-    
+
 
     <script src="script.js" type="module"></script>
 
@@ -90,6 +98,14 @@
                     });
                 </script>
             </p>
+        </div>
+        <div class="right-content">
+            <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank">
+                <img src="images/patreon.svg" alt="Logo">
+            </a>
+            <a href="https://gofund.me/5a43d215" target="_blank">
+                <img src="images/gofundme2.svg" alt="Logo">
+            </a>
         </div>
     </footer>
     

@@ -39,13 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Settings Menu Toggle
+    // Settings Menu Toggle (open/close on header click)
     const settingsHeader = document.getElementById('settings-header');
     const settingsMenu = document.getElementById('settings-popup');
 
     settingsHeader.addEventListener('click', () => {
         const isOpen = settingsMenu.style.display === 'flex';
         settingsMenu.style.display = isOpen ? 'none' : 'flex';
-        settingsHeader.classList.toggle('settings-open', !isOpen);
+        settingsHeader.classList.toggle('settings-open', !isOpen);  // Toggle arrow rotation
     });
 });

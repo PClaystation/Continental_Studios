@@ -6,3 +6,11 @@ combine first and last name fields
 make update page
 Finish settings
 Finish websites page
+
+
+
+
+
+
+Make Spotify API stuff
+Would you rather
