@@ -12,14 +12,37 @@ body, html {
 /* Hero section */
 .hero {
     background: url('images/placeHolder2.jpg') no-repeat center center/cover;
+    background-image: url('images/placeHolder2.jpg');
     height: 100vh;
     display: flex;
-    flex-direction: column;  /* Ensures vertical stacking */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
     position: relative;
+    transition: background-image 0.5s ease-in-out; /* Smooth transition */
+
+}
+
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%; /* Adjust this to control how much of the image fades */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #222);
+    pointer-events: none; /* So it doesn't interfere with other content */
+}
+
+
+
+
+
+.hero.fade {
+    background-size: 110%;  /* Stretch the background slightly to make the transition smoother */
 }
 
 .hero-logo {
@@ -232,7 +255,7 @@ nav a:hover {
     opacity: 0.7;
     padding-right: 20px;
     white-space: nowrap;
-    color: white;
+    color: rgba(255, 255, 255, 0);
     cursor: pointer;
     position: absolute;
     right: 120px;
@@ -578,8 +601,143 @@ input:checked + .slider:before {
 }
 
 
+.styled-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 20px; /* adjust how far from the right you want it */
+    transform: translateY(-50%);
+    z-index: 10; /* so it sits above the image */
+}
 
+.styled-wrapper .button {
+    display: block;
+    position: relative;
+    width: 76px;
+    height: 76px;
+    margin: 0;
+    overflow: hidden;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+  }
+  
+  .styled-wrapper .button:before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    inset: 7px;
+    border: 3px solid rgb(255, 255, 255); /* Update dynamically for light/dark mode */
+    transition:
+      opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+      transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+  }
+  
+  .styled-wrapper .button:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    inset: 7px;
+    border: 4px solid #ffffff;
+    transform: scale(1.3);
+    transition:
+      opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+      transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+  }
+  
+  .styled-wrapper .button:hover:before,
+  .styled-wrapper .button:focus:before {
+    opacity: 0;
+    transform: scale(0.7);
+    transition:
+      opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+      transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .styled-wrapper .button:hover:after,
+  .styled-wrapper .button:focus:after {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+      transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+  }
+  
+  .styled-wrapper .button-box {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .styled-wrapper .button-elem {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 24px 18px 0 22px;
+    transform: rotate(360deg);
+    fill: #f0eeef;
+  }
+  
+  .styled-wrapper .button:hover .button-box,
+  .styled-wrapper .button:focus .button-box {
+    transition: 0.4s;
+    transform: translateX(-69px);
+  }
 
+  .styled-wrapper .button-elem svg {
+    transform: rotate(180deg);
+  }
+  
+  
+#hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap;
+}
 
+.flip-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 6ch; /* shrunk from 7ch */
+    height: 1em;
+    perspective: 1000px;
+    vertical-align: baseline;
+}
 
+.flip-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    text-align: left;
+    top: 0;
+    left: 0;
+}
 
+.front {
+    transform: rotateX(0deg);
+    margin-top: 2px;
+}
+
+.back {
+    transform: rotateX(180deg);
+    margin-top: 2px;
+}
+
+.flip-wrapper.flipped .front {
+    transform: rotateX(-180deg);
+}
+
+.flip-wrapper.flipped .back {
+    transform: rotateX(0deg);
+}

@@ -11,46 +11,74 @@
     
     <section class="hero">
         <img src="images/C2-dark.png" alt="Logo" class="hero-logo">
-        <h1 id="hero-title">Continental Studios</h1>
+        <h1 id="hero-title">
+            Continental  <span class="flip-wrapper">
+                <span class="flip-text front">Studios</span>
+                <span class="flip-text back">Games</span>
+            </span>
+        </h1>
+        
+        
+        
+        
+        
+        <div class="styled-wrapper">
+            <button class="button" id="ChangeModeButton">
+                <div class="button-box">
+                    <span class="button-elem">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                            <path fill="white" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elem">
+                        <svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+        </div>  
     </section>
+    
 
     <section class="main-content">
         <h2>Websites</h2>
         <p id="settings-button"></p> <!-- DO NOT TOUCH -->
+
+        <div class="circle-with-arrow"></div>
+
     
         <!-- New flex container for the cards -->
         <div class="website-list">
             <div class="website-item">
-                <img src="images/App-logo.png" alt="Website 1" class="website-logo">
+                <img src="images/App-logo-2-W.png" alt="Website 1" class="website-logo">
                 <h3>StepCast</h3>
                 <p>StepCast is a walk tracking website tailored towards podcast listeners.</p>
                 <a href="https://pclaystation.github.io/StepCast/" class="btn">Visit Website</a>
             </div>
             <div class="website-item">
-                <img src="images/question-mark.png" alt="Website 1" class="website-logo">
-                <h3>Coming Soon...</h3>
-                <p></p>
+                <img src="images/TEA-Logo-S-W.png" alt="Website 1" class="website-logo">
+                <h3>The Echo Archives</h3>
+                <p>The Echo Archives is a archive of different audio dramas I have listened to.</p>
+                <a href="https://pclaystation.github.io/StepCast/" class="btn">Visit Website</a>
             </div>
         </div>
     </section>
     
     <button id="backToTop">↑</button>
 
-    <!-- Settings Popup Menu -->
+    <!-- Settings Popup Menu 
     <div class="settings-wrapper popup-menu" id="settings-popup">
         <div class="settings-header">
             <h1>Settings</h1>
         </div>
         
-        <!-- Dark Mode Toggle inside Settings -->
         <div class="toggle-section">
-            <label class="switch">
-                <input type="checkbox" id="dark-mode-toggle" checked> <!-- checked here for dark mode by default -->
-                <span class="slider"></span>
-            </label>
+
+
             <label for="dark-mode-toggle" class="toggle-label">Dark Mode</label>
         </div>
-    </div>
+    </div> -->
     
     
 
@@ -70,7 +98,6 @@
         </nav>
         <div class="right-text" id="settings-header">
             Settings
-            <span class="arrow"></span>
         </div>
     </header>
     
@@ -85,7 +112,7 @@
     <footer>
         <div class="left-content">
             <img src="images/C2-dark.png" alt="Logo">
-            <span>Continental Studios</span>
+            <span>Continental</span>
         </div>
         <div class="center-content">
             <p>
@@ -97,7 +124,7 @@
                         window.location.href = 'contact.html';  // Link to your contact page
                     });
                 </script>
-            </p>
+         </p>
         </div>
         <div class="right-content">
             <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank">

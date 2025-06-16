@@ -1,51 +1,104 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Intersection Observer for revealing items on scroll
-    const items = document.querySelectorAll(".website-item");
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.2 });
+document.addEventListener("DOMContentLoaded", () => {
+  const websiteList = document.querySelector('.website-list');
+  const flipWrapper = document.querySelector(".flip-wrapper");
+  const heroSection = document.querySelector(".hero");
+  const button = document.getElementById("ChangeModeButton");
+  const backToTop = document.getElementById("backToTop");
 
-    items.forEach(item => observer.observe(item));
+  // Enable dark mode by default
+  document.body.classList.add('dark-mode');
 
-    // Dark Mode Toggle
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-
-    if (localStorage.getItem('dark-mode') === 'enabled') {
-        body.classList.add('dark-mode');
-    }
-
-    darkModeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('dark-mode', 'enabled');
-        } else {
-            localStorage.removeItem('dark-mode');
-        }
+  // Intersection Observer for revealing items on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        // Optional: unobserve after revealed for performance
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.2 });
 
-    // Back to Top Button
-    const backToTop = document.getElementById("backToTop");
+  const websiteSets = [
+    [
+      {
+        img: 'images/App-logo-2-W.png',
+        title: 'StepCast',
+        desc: 'StepCast is a walk tracking website tailored towards podcast listeners.',
+        link: 'https://pclaystation.github.io/StepCast/',
+      },
+      {
+        img: 'images/TEA-Logo-S-W.png',
+        title: 'The Echo Archives',
+        desc: 'The Echo Archives is an archive of different audio dramas I have listened to.',
+        link: 'https://pclaystation.github.io/StepCast/',
+      }
+    ],
+    [
+      {
+        img: 'images/minesweeper-nbg-w.png',
+        title: 'MineSweeper',
+        desc: 'MineSweeper is a improved clone of the classic minesweeper.',
+        link: 'https://pclaystation.github.io/Minesweeper/',
+      },
+      {
+        img: 'images/question-mark.png',
+        title: 'Coming soon',
+        desc: 'Coming soon.',
+        link: '',
+      }
+    ]
+  ];
 
-    window.addEventListener("scroll", () => {
-        backToTop.style.display = window.scrollY > 200 ? "block" : "none";
+  let mode = 0;
+  let toggled = false;
+
+  function renderWebsites(set) {
+    websiteList.innerHTML = '';
+    set.forEach(site => {
+      const item = document.createElement('div');
+      item.classList.add('website-item');
+      item.innerHTML = `
+        <img src="${site.img}" alt="${site.title}" class="website-logo">
+        <h3>${site.title}</h3>
+        <p>${site.desc}</p>
+        <a href="${site.link}" class="btn" target="_blank" rel="noopener noreferrer">Visit Website</a>
+      `;
+      websiteList.appendChild(item);
+
+      // Observe each new item for scroll reveal
+      observer.observe(item);
     });
+  }
 
-    backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+  // Initial render
+  renderWebsites(websiteSets[mode]);
 
-    // Settings Menu Toggle (open/close on header click)
-    const settingsHeader = document.getElementById('settings-header');
-    const settingsMenu = document.getElementById('settings-popup');
+  // Back to Top button logic
+  window.addEventListener("scroll", () => {
+    backToTop.style.display = window.scrollY > 200 ? "block" : "none";
+  });
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
-    settingsHeader.addEventListener('click', () => {
-        const isOpen = settingsMenu.style.display === 'flex';
-        settingsMenu.style.display = isOpen ? 'none' : 'flex';
-        settingsHeader.classList.toggle('settings-open', !isOpen);  // Toggle arrow rotation
-    });
+  // Toggle button click handler
+  button.addEventListener("click", () => {
+    flipWrapper.classList.toggle("flipped");
+    heroSection.classList.add("fade");
+
+    setTimeout(() => {
+      if (toggled) {
+        heroSection.style.backgroundImage = "url('images/placeHolder2.jpg')";
+      } else {
+        heroSection.style.backgroundImage = "url('images/placeHolder3.jpg')";
+      }
+      heroSection.classList.remove("fade");
+      toggled = !toggled;
+    }, 100); // Make sure this matches your CSS fade duration
+
+    // Switch website set and re-render
+    mode = (mode + 1) % websiteSets.length;
+    renderWebsites(websiteSets[mode]);
+  });
 });

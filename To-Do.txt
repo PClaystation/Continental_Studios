@@ -12,5 +12,7 @@ Finish websites page
 
 
 
-Make Spotify API stuff
+Make Spotify API stuff website
 Would you rather
+Podcast duration calculator
+City builder step tracker
