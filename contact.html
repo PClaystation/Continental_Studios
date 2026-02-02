@@ -72,77 +72,6 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Right-aligned text for settings */
-/* Style for the right text and arrow */
-.right-text {
-    font-size: 24px;
-    opacity: 0.7;
-    padding-right: 20px;
-    white-space: nowrap;
-    color: rgba(255, 255, 255, 0);
-    cursor: pointer;
-    position: absolute;
-    right: 120px;
-    text-align: center; /* Centers the arrow below the text */
-}
-
-/* Remove underline on hover for the settings text */
-.right-text a:hover {
-    text-decoration: underline;
-}
-
-/* Position the arrow below the text */
-/* Ensure the header text is the positioning context */
-#settings-header {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    /* (other styles as needed) */
-  }
-  
-  /* Position the arrow centered below the text */
-  .arrow {
-    position: absolute;
-    bottom: -12px;      /* adjust vertical spacing as needed */
-    left: 40%;
-    width: 12px;        /* container for the arrow shape */
-    height: 12px;
-    transform: translateX(-50%) rotate(0deg);  /* default rotation: 0deg here means caret points down (see below) */
-    transition: transform 0.3s ease;
-    transform-origin: center;
-  }
-  
-  /* Build the caret shape using two lines */
-  .arrow::before,
-  .arrow::after {
-    content: "";
-    position: absolute;
-    width: 2px;         /* thickness of each line */
-    height: 6px;        /* length of each line */
-    background: white;  /* arrow color */
-  }
-  
-  /* Left line: rotate so that it slopes to the right in a downward caret */
-  .arrow::before {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    transform-origin: bottom center;
-  }
-  
-  /* Right line: rotate so that it slopes to the left in a downward caret */
-  .arrow::after {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) rotate(-45deg);
-    transform-origin: bottom center;
-  }
-  
-  /* When the settings menu is open, rotate the whole arrow 180° */
-  .settings-open .arrow {
-    transform: translateX(-50%) rotate(180deg);
-  }
-
   .left-text img {
     height: 50px;
     width: 50px;
@@ -230,8 +159,19 @@ footer a:hover {
 
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Contact form
-</title>
+    <title>Contact | Continental Studios</title>
+    <meta name="description" content="Get in touch with Continental Studios.">
+    <link rel="canonical" href="https://continental-hub.com/contact.html">
+    <meta property="og:title" content="Continental Studios | Contact">
+    <meta property="og:description" content="Get in touch with Continental Studios.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://continental-hub.com/contact.html">
+    <meta property="og:image" content="https://continental-hub.com/images/C2-dark.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Continental Studios | Contact">
+    <meta name="twitter:description" content="Get in touch with Continental Studios.">
+    <meta name="twitter:image" content="https://continental-hub.com/images/C2-dark.png">
+    <meta name="theme-color" content="#111111">
     <script async src="https://tally.so/widgets/embed.js"></script>
     <style type="text/css">
       html { margin: 0; height: 100%; overflow: hidden; }
@@ -245,44 +185,37 @@ footer a:hover {
     <header>
       <div class="left-text" id="header-logo">
           <a href="index.html">
-              <img src="images/C2-dark.png" alt="Logo">
+              <img src="images/C2-dark.png" alt="Continental Studios logo" loading="lazy">
           </a>
       </div>
       <nav>
           <ul>
-              <li><a href="#News">News</a></li>
+              <li><a href="news.html">News</a></li>
               <li><a href="index.html" class="semi-bold-text">Home</a></li>
               <li><a href="websites.html">Websites</a></li>
           </ul>
       </nav>
-      <div class="right-text" id="settings-header">
-          Settings
-      </div>
+      
   </header>
 
   <footer>
     <div class="left-content">
-        <img src="images/C2-dark.png" alt="Logo">
+            <img src="images/C2-dark.png" alt="Continental Studios logo" loading="lazy">
         <span>Continental</span>
     </div>
     <div class="center-content">
         <p>
             © 2025 PClaystation | 
-            <a href="https://github.com/PClaystation" target="_blank">GitHub</a> |
-            <a href="" target="_blank" id="contact-button">Contact Us</a>
-            <script>
-                document.getElementById('contact-button').addEventListener('click', function() {
-                    window.location.href = 'contact.html';  // Link to your contact page
-                });
-            </script>
+            <a href="https://github.com/PClaystation" target="_blank" rel="noopener noreferrer">GitHub</a> |
+            <a href="contact.html" id="contact-button">Contact Us</a>
      </p>
     </div>
     <div class="right-content">
-        <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank">
-            <img src="images/patreon.svg" alt="Logo">
+        <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noopener noreferrer">
+            <img src="images/patreon.svg" alt="Patreon logo" loading="lazy">
         </a>
-        <a href="https://gofund.me/5a43d215" target="_blank">
-            <img src="images/gofundme2.svg" alt="Logo">
+        <a href="https://gofund.me/5a43d215" target="_blank" rel="noopener noreferrer">
+            <img src="images/gofundme2.svg" alt="GoFundMe logo" loading="lazy">
         </a>
     </div>
 </footer>

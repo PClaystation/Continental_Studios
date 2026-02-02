@@ -56,6 +56,184 @@ body, html {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
+.about-section {
+    background: #222222;
+    color: #f5f5f5;
+    padding: 70px 20px 60px;
+}
+
+.about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-inner h2 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+}
+
+.about-inner p {
+    max-width: 720px;
+    margin: 0 auto 36px;
+    font-size: 1.1rem;
+    color: rgba(245, 245, 245, 0.8);
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.about-card {
+    background: #222;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.about-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+}
+
+.about-card p {
+    margin: 0;
+    color: rgba(245, 245, 245, 0.7);
+    font-size: 0.98rem;
+}
+
+.latest-update {
+    background: #14161b;
+    padding: 24px 20px;
+}
+
+.latest-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: center;
+}
+
+.latest-label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    color: rgba(245, 245, 245, 0.6);
+    font-weight: 600;
+}
+
+.latest-content h3 {
+    margin: 0 0 6px;
+    font-size: 1.3rem;
+    color: #f5f5f5;
+}
+
+.latest-content p {
+    margin: 0;
+    color: rgba(245, 245, 245, 0.7);
+}
+
+.latest-link {
+    background: #f5f5f5;
+    color: #111;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.latest-link:hover {
+    background: #e0e0e0;
+}
+
+@media (max-width: 720px) {
+    .latest-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+.news-page {
+    padding: 140px 6vw 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.news-hero {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.news-hero h1 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    margin-bottom: 10px;
+}
+
+.news-hero p {
+    margin: 0 auto;
+    max-width: 640px;
+    color: rgba(247, 247, 247, 0.7);
+    font-size: 1.1rem;
+}
+
+.news-list {
+    display: grid;
+    gap: 20px;
+}
+
+.news-card {
+    background: #1a1c22;
+    border-radius: 16px;
+    padding: 22px 24px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: rgba(247, 247, 247, 0.6);
+}
+
+.news-tag {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.news-card h2 {
+    margin: 0 0 8px;
+    font-size: 1.4rem;
+}
+
+.news-card p {
+    margin: 0;
+    color: rgba(247, 247, 247, 0.7);
+    line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+    .news-page {
+        padding: 120px 6vw 60px;
+    }
+
+    .news-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
 
 
 
@@ -134,6 +312,13 @@ html {
     background-color: #0056b3;
 }
 
+.btn.disabled {
+    background-color: #666;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
 /* Make it responsive: 1 card per row on small screens */
 @media (max-width: 768px) {
     .website-item {
@@ -174,19 +359,7 @@ html {
     background-color: #777;
 }
 
-.dark-mode .settings-wrapper {
-    background-color: rgba(119, 119, 119, 0.7);
-    color: #fff;
-}
-
-.dark-mode .toggle-label {
-    color: #fff;
-}
-
-
-
-
-
+ 
 
 /* Header and Navigation */
 header {
@@ -248,77 +421,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Right-aligned text for settings */
-/* Style for the right text and arrow */
-.right-text {
-    font-size: 24px;
-    opacity: 0.7;
-    padding-right: 20px;
-    white-space: nowrap;
-    color: rgba(255, 255, 255, 0);
-    cursor: pointer;
-    position: absolute;
-    right: 120px;
-    text-align: center; /* Centers the arrow below the text */
-}
-
-/* Remove underline on hover for the settings text */
-.right-text a:hover {
-    text-decoration: underline;
-}
-
-/* Position the arrow below the text */
-/* Ensure the header text is the positioning context */
-#settings-header {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    /* (other styles as needed) */
-  }
-  
-  /* Position the arrow centered below the text */
-  .arrow {
-    position: absolute;
-    bottom: -12px;      /* adjust vertical spacing as needed */
-    left: 40%;
-    width: 12px;        /* container for the arrow shape */
-    height: 12px;
-    transform: translateX(-50%) rotate(0deg);  /* default rotation: 0deg here means caret points down (see below) */
-    transition: transform 0.3s ease;
-    transform-origin: center;
-  }
-  
-  /* Build the caret shape using two lines */
-  .arrow::before,
-  .arrow::after {
-    content: "";
-    position: absolute;
-    width: 2px;         /* thickness of each line */
-    height: 6px;        /* length of each line */
-    background: white;  /* arrow color */
-  }
-  
-  /* Left line: rotate so that it slopes to the right in a downward caret */
-  .arrow::before {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    transform-origin: bottom center;
-  }
-  
-  /* Right line: rotate so that it slopes to the left in a downward caret */
-  .arrow::after {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) rotate(-45deg);
-    transform-origin: bottom center;
-  }
-  
-  /* When the settings menu is open, rotate the whole arrow 180° */
-  .settings-open .arrow {
-    transform: translateX(-50%) rotate(180deg);
-  }
-
+ 
   .left-text img {
     height: 50px;
     width: 50px;
@@ -363,20 +466,6 @@ nav a:hover {
 
 
 
-/* Dark Mode Toggle Button */
-.dark-mode-toggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 10000;
-    
-}
 * {
     transition: background-color 0.3s, color 0.3s;
 }
@@ -467,139 +556,7 @@ footer a:hover {
 
 
 
-/* The switch - the box around the slider */
-/* The switch - the box around the slider */
-.switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 3.5em;
-    height: 2em;
-}
-  
-/* Hide default HTML checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-  
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #B0B0B0; /* Light mode background */
-    border: 1px solid #B0B0B0;
-    transition: .4s;
-    border-radius: 32px;
-    outline: none;
-}
-  
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    outline: 2px solid #B0B0B0;
-    left: -1px;
-    bottom: -1px;
-    background-color: #fff;
-    transition: transform .25s ease-in-out 0s;
-}
-  
-input:checked + .slider {
-    background-color: #222222; /* Dark mode background */
-}
-
-input:checked + .slider:before {
-    transform: translateX(1.5em); /* Moves slider to the right */
-    outline-color: #181818;
-}
-
-
-/* Settings Menu - Positioned at Top Right */
-.settings-wrapper {
-    display: none; /* Initially hidden */
-    position: fixed;
-    top: 90px;
-    right: 10px;
-    width: 300px;
-    height: auto;
-    background-color: rgba(119, 119, 119, 0.7);
-    border-radius: 8px;
-    padding: 20px;
-    z-index: 10000; /* Make sure it's on top of other elements */
-    box-sizing: border-box;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.settings-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Keep space between title and close button */
-    margin-bottom: 20px;
-    position: relative;
-}
-
-/* Title in settings */
-.settings-header h1 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center; /* Ensure title is centered */
-    flex-grow: 1; /* Allow title to take all available space */
-}
-
-/* Close button for the settings menu */
-#exit-settings-button {
-    font-size: 18px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333;
-    padding: 0;
-    width: 30px; /* Set width */
-    height: 30px; /* Set height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Prevent accidental clicks around the button */
-.settings-wrapper button {
-    display: inline-block; /* Ensures the button doesn't expand unnecessarily */
-}
-
-/* For the rest of the settings content */
-.settings-wrapper h1 {
-    margin-bottom: 20px;
-}
-
-/* Fix Toggle Section - Keeps Slider on the Left */
-.toggle-section {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Aligns everything to the left */
-    width: 100%;
-    margin-top: 10px;
-}
-
-.switch {
-    margin-right: 10px; /* Adds space between slider and text */
-}
-
-.toggle-label {
-    font-size: 16px;
-    color: #333;
-}
-
+ 
 
 .styled-wrapper {
     position: absolute;

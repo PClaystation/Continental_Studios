@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Continental Studios | Home</title>
+    <meta name="description" content="Continental Studios is the home for independent web projects, tools, games, and experiments built under one creative umbrella.">
+    <link rel="canonical" href="https://continental-hub.com/">
+    <meta property="og:title" content="Continental Studios">
+    <meta property="og:description" content="Independent web projects, tools, games, and experiments built under one creative umbrella.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://continental-hub.com/">
+    <meta property="og:image" content="https://continental-hub.com/images/C2-dark.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Continental Studios">
+    <meta name="twitter:description" content="Independent web projects, tools, games, and experiments built under one creative umbrella.">
+    <meta name="twitter:image" content="https://continental-hub.com/images/C2-dark.png">
+    <meta name="theme-color" content="#111111">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/C2-dark.png" type="image/x-icon">
       <!-- Google tag (gtag.js) -->
@@ -15,11 +27,20 @@
 
         gtag('config', 'G-DCZ0C1B3EF');
     </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Continental Studios",
+            "url": "https://continental-hub.com/",
+            "logo": "https://continental-hub.com/images/C2-dark.png"
+        }
+    </script>
 </head> 
 <body>
     
     <section class="hero">
-        <img src="images/C2-dark.png" alt="Logo" class="hero-logo">
+        <img src="images/C2-dark.png" alt="Continental Studios logo" class="hero-logo">
         <h1 id="hero-title">
             Continental  <span class="flip-wrapper">
                 <span class="flip-text front">Studios</span>
@@ -32,8 +53,8 @@
         
         
         <div class="styled-wrapper">
-            <button class="button" id="ChangeModeButton">
-                <div class="button-box">
+            <button class="button" id="ChangeModeButton" aria-label="Toggle project list">
+                <div class="button-box" aria-hidden="true">
                     <span class="button-elem">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
                             <path fill="white" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
@@ -49,6 +70,46 @@
         </div>  
     </section>
     
+    <section class="about-section" id="About">
+        <div class="about-inner">
+          <h2>About</h2>
+          <p>
+            Continental is my personal umbrella brand — a home for the digital stuff I build, experiment with, and polish until it feels “real.”
+            Websites, tools, games, bots, and even a custom Linux setup all live under the same identity, but each project keeps its own name and style.
+            If you see the globe mark or “A Continental Studios production,” that’s the signature.
+          </p>
+      
+          <div class="about-highlights">
+            <div class="about-card">
+              <h3>Independent Projects</h3>
+              <p>Each thing stands on its own with its own vibe — Continental is the umbrella, not the theme.</p>
+            </div>
+      
+            <div class="about-card">
+              <h3>Design-First</h3>
+              <p>I care a lot about clean visuals, strong identity, and small details that make projects feel finished.</p>
+            </div>
+      
+            <div class="about-card">
+              <h3>Built to Grow</h3>
+              <p>Some projects are quick experiments, some are long-term. The goal is to keep building and keep shipping.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="latest-update" aria-label="Latest update">
+        <div class="latest-inner">
+            <div class="latest-label">Latest Update</div>
+            <div class="latest-content">
+                <h3>Home page revamp underway</h3>
+                <p>We are rebuilding the landing experience with cleaner sections, stronger visuals, and better navigation flow.</p>
+            </div>
+            <a class="latest-link" href="news.html">See all updates</a>
+        </div>
+    </section>
+      
+
 
     <section class="main-content">
         <h2>Websites</h2>
@@ -60,34 +121,23 @@
         <!-- New flex container for the cards -->
         <div class="website-list">
             <div class="website-item">
-                <img src="images/App-logo-2-W.png" alt="Website 1" class="website-logo">
+                <img src="images/App-logo-2-W.png" alt="StepCast logo" class="website-logo" loading="lazy">
                 <h3>StepCast</h3>
                 <p>StepCast is a walk tracking website tailored towards podcast listeners.</p>
-                <a href="https://pclaystation.github.io/StepCast/" class="btn">Visit Website</a>
+                <a href="https://pclaystation.github.io/Walk-Tracker-Web-App/" class="btn" target="_blank" rel="noopener noreferrer">Visit Website</a>
             </div>
             <div class="website-item">
-                <img src="images/TEA-Logo-S-W.png" alt="Website 1" class="website-logo">
+                <img src="images/TEA-Logo-S-W.png" alt="The Echo Archives logo" class="website-logo" loading="lazy">
                 <h3>The Echo Archives</h3>
                 <p>The Echo Archives is a archive of different audio dramas I have listened to.</p>
-                <a href="https://pclaystation.github.io/StepCast/" class="btn">Visit Website</a>
+                <a href="https://pclaystation.github.io/The-Echo-Archives/" class="btn" target="_blank" rel="noopener noreferrer">Visit Website</a>
             </div>
         </div>
     </section>
     
-    <button id="backToTop">↑</button>
+    <button id="backToTop" aria-label="Back to top">↑</button>
 
-    <!-- Settings Popup Menu 
-    <div class="settings-wrapper popup-menu" id="settings-popup">
-        <div class="settings-header">
-            <h1>Settings</h1>
-        </div>
-        
-        <div class="toggle-section">
-
-
-            <label for="dark-mode-toggle" class="toggle-label">Dark Mode</label>
-        </div>
-    </div> -->
+    
     
     
 
@@ -95,19 +145,17 @@
     <header>
         <div class="left-text" id="header-logo">
             <a href="index.html">
-                <img src="images/C2-dark.png" alt="Logo">
+                <img src="images/C2-dark.png" alt="Continental Studios logo" loading="lazy">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="#News">News</a></li>
+                <li><a href="news.html">News</a></li>
                 <li><a href="index.html" class="semi-bold-text">Home</a></li>
                 <li><a href="websites.html">Websites</a></li>
             </ul>
         </nav>
-        <div class="right-text" id="settings-header">
-            Settings
-        </div>
+        
     </header>
     
     
@@ -120,27 +168,22 @@
 
     <footer>
         <div class="left-content">
-            <img src="images/C2-dark.png" alt="Logo">
+            <img src="images/C2-dark.png" alt="Continental Studios logo" loading="lazy">
             <span>Continental</span>
         </div>
         <div class="center-content">
             <p>
                 © 2025 PClaystation | 
-                <a href="https://github.com/PClaystation" target="_blank">GitHub</a> |
-                <a href="" target="_blank" id="contact-button">Contact Us</a>
-                <script>
-                    document.getElementById('contact-button').addEventListener('click', function() {
-                        window.location.href = 'contact.html';  // Link to your contact page
-                    });
-                </script>
+                <a href="https://github.com/PClaystation" target="_blank" rel="noopener noreferrer">GitHub</a> |
+                <a href="contact.html" id="contact-button">Contact Us</a>
          </p>
         </div>
         <div class="right-content">
-            <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank">
-                <img src="images/patreon.svg" alt="Logo">
+            <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noopener noreferrer">
+                <img src="images/patreon.svg" alt="Patreon logo" loading="lazy">
             </a>
-            <a href="https://gofund.me/5a43d215" target="_blank">
-                <img src="images/gofundme2.svg" alt="Logo">
+            <a href="https://gofund.me/5a43d215" target="_blank" rel="noopener noreferrer">
+                <img src="images/gofundme2.svg" alt="GoFundMe logo" loading="lazy">
             </a>
         </div>
     </footer>

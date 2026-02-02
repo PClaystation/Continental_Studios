@@ -8,7 +8,19 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Websites - Continental Studios</title>
+    <title>Websites | Continental Studios</title>
+    <meta name="description" content="Explore websites and projects created by Continental Studios.">
+    <link rel="canonical" href="https://continental-hub.com/websites.html">
+    <meta property="og:title" content="Continental Studios | Websites">
+    <meta property="og:description" content="Explore websites and projects created by Continental Studios.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://continental-hub.com/websites.html">
+    <meta property="og:image" content="https://continental-hub.com/images/C2-dark.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Continental Studios | Websites">
+    <meta name="twitter:description" content="Explore websites and projects created by Continental Studios.">
+    <meta name="twitter:image" content="https://continental-hub.com/images/C2-dark.png">
+    <meta name="theme-color" content="#111111">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DCZ0C1B3EF"></script>
   <script>
@@ -21,123 +33,86 @@
 </head>
 <body>
 
-    <h1>Our Websites</h1>
-    <p>Explore the websites created by Continental Studios.</p>
+    <main class="websites-page">
+        <section class="websites-hero">
+            <h1>Our Websites</h1>
+            <p>Explore projects from Continental Studios.</p>
+        </section>
 
-    <div class="container">
-        <h2>StepCast</h2>
-        <div class="text" id="text1">
-            <p>A walk tracker made for podcast listeners</p>
-            <p>Stepcast is a walk tracker that focuses on the podcast listeners. </p>
-            <p>In the future, we plan to expand its features and make it more interactive.</p>
-            <div class="fade" id="fade1"></div>
-        </div>
-        <button class="button" onclick="toggleText('text1', 'fade1', this)">Read More</button>
-    </div>
+        <section class="websites-grid">
+            <article class="website-card">
+                <div class="card-top">
+                    <img src="images/App-logo-2-W.png" alt="StepCast logo" class="card-logo" loading="lazy">
+                    <div class="card-text">
+                        <h2>StepCast</h2>
+                        <p>Walk tracking made for podcast listeners, with a clean, distraction-free interface.</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a class="card-link" href="https://pclaystation.github.io/Walk-Tracker-Web-App/" target="_blank" rel="noopener noreferrer">Visit</a>
+                </div>
+            </article>
 
-    <div class="container">
-        <h2>Website 2</h2>
-        <div class="text" id="text2">
-            <p></p>
-            <p></p>
-            <p></p>
-            <div class="fade" id="fade2"></div>
-        </div>
-        <button class="button" onclick="toggleText('text2', 'fade2', this)">Read More</button>
-    </div>
+            <article class="website-card">
+                <div class="card-top">
+                    <img src="images/TEA-Logo-S-W.png" alt="The Echo Archives logo" class="card-logo" loading="lazy">
+                    <div class="card-text">
+                        <h2>The Echo Archives</h2>
+                        <p>An archive of audio dramas and listening notes, curated and organized for quick discovery.</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a class="card-link" href="https://pclaystation.github.io/The-Echo-Archives/" target="_blank" rel="noopener noreferrer">Visit</a>
+                </div>
+            </article>
 
-    <div class="container">
-        <h2>Website 3</h2>
-        <div class="text" id="text3">
-            <p></p>
-            <p></p>
-            <p></p>
-            <div class="fade" id="fade3"></div>
-        </div>
-        <button class="button" onclick="toggleText('text3', 'fade3', this)">Read More</button>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Ensure initial max-height is correctly set
-            document.querySelectorAll(".text").forEach(text => {
-                text.style.maxHeight = "80px";
-            });
-        });
-
-        function toggleText(textId, fadeId, button) {
-            let textContent = document.getElementById(textId);
-            let fadeEffect = document.getElementById(fadeId);
-            let expanded = textContent.style.maxHeight !== "80px"; // Check if it's expanded
-
-            if (expanded) {
-                // Collapse
-                textContent.style.maxHeight = "80px";
-                fadeEffect.style.display = "block";
-                button.textContent = "Read More";
-            } else {
-                // Expand dynamically based on content height
-                textContent.style.maxHeight = textContent.scrollHeight + "px";
-                fadeEffect.style.display = "none";
-                button.textContent = "Read Less";
-            }
-        }
-    </script>
+            <article class="website-card">
+                <div class="card-top">
+                    <img src="images/minesweeper-nbg-w.png" alt="MineSweeper logo" class="card-logo" loading="lazy">
+                    <div class="card-text">
+                        <h2>MineSweeper</h2>
+                        <p>A refined remake of the classic minesweeper with smooth animations and clear visuals.</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a class="card-link" href="https://pclaystation.github.io/Minesweeper/" target="_blank" rel="noopener noreferrer">Play</a>
+                </div>
+            </article>
+        </section>
+    </main>
 
     <button id="backToTop">↑</button>
     <script src="script.js" type="module"></script>
 
 
-    <!-- Settings Popup Menu -->
-    <div class="settings-wrapper popup-menu" id="settings-popup">
-        <div class="settings-header">
-            <h1>Settings</h1>
-        </div>
-        
-        <!-- Dark Mode Toggle inside Settings -->
-        <div class="toggle-section">
-            <label class="switch">
-                <input type="checkbox" id="dark-mode-toggle" checked> <!-- checked here for dark mode by default -->
-                <span class="slider"></span>
-            </label>
-            <label for="dark-mode-toggle" class="toggle-label">Dark Mode</label>
-        </div>
-    </div>
+    
 
     <header>
         <div class="left-text" id="header-logo">
             <a href="index.html">
-                <img src="images/C2-dark.png" alt="Logo">
+                <img src="images/C2-dark.png" alt="Continental Studios logo" loading="lazy">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="#News">News</a></li>
+                <li><a href="news.html">News</a></li>
                 <li><a href="index.html" class="semi-bold-text">Home</a></li>
                 <li><a href="websites.html">Websites</a></li>
             </ul>
         </nav>
-        <div class="right-text" id="settings-header">
-            Settings
-            <span class="arrow"></span>
-        </div>
+        
     </header>
 
     <footer>
         <div class="left-content">
-            <img src="images/C2-dark.png" alt="Logo">
+            <img src="images/C2-dark.png" alt="Continental Studios logo" loading="lazy">
             <span>Continental Studios</span>
         </div>
         <div class="center-content">
             <p>
                 © 2025 PClaystation | 
-                <a href="https://github.com/PClaystation" target="_blank">GitHub</a> |
-                <a href="" target="_blank" id="contact-button">Contact Us</a>
-                <script>
-                    document.getElementById('contact-button').addEventListener('click', function() {
-                        window.location.href = 'contact.html';  // Link to your contact page
-                    });
-                </script>
+                <a href="https://github.com/PClaystation" target="_blank" rel="noopener noreferrer">GitHub</a> |
+                <a href="contact.html" id="contact-button">Contact Us</a>
             </p>
         </div>
     </footer>
