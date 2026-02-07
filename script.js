@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroSection = document.querySelector(".hero");
   const button = document.getElementById("ChangeModeButton");
   const backToTop = document.getElementById("backToTop");
+  const logoutBtn = document.getElementById('logout-btn');
 
   // Enable dark mode by default
   document.body.classList.add('dark-mode');
@@ -101,4 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
     mode = (mode + 1) % websiteSets.length;
     renderWebsites(websiteSets[mode]);
   });
+
+  logoutBtn.onclick = () => {
+    const loginURL = `https://pclaystation.github.io/Dashboard/?`;
+    window.location.href = loginURL;
+  };
 });

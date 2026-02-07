@@ -217,7 +217,7 @@ nav ul {
     justify-content: center;
     list-style-type: none;
     padding: 10px 0;
-    margin: 0;
+    margin-right: 100px;
 }
 
 nav li {
@@ -255,27 +255,39 @@ nav a:hover {
     opacity: 0.7;
     padding-right: 20px;
     white-space: nowrap;
-    color: rgba(255, 255, 255, 0);
+    color: white;
     cursor: pointer;
     position: absolute;
-    right: 120px;
+    right: 90px;
     text-align: center; /* Centers the arrow below the text */
 }
 
-/* Remove underline on hover for the settings text */
-.right-text a:hover {
-    text-decoration: underline;
-}
+#logout-btn {
+    background: white;
+    border: none;
+    color: #121212;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  
 
 /* Position the arrow below the text */
 /* Ensure the header text is the positioning context */
+
+/*
 #settings-header {
     position: relative;
     cursor: pointer;
     display: inline-block;
-    /* (other styles as needed) */
   }
-  
+  */
+
   /* Position the arrow centered below the text */
   .arrow {
     position: absolute;
@@ -741,3 +753,5 @@ input:checked + .slider:before {
 .flip-wrapper.flipped .back {
     transform: rotateX(0deg);
 }
+
+
